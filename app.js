@@ -20,7 +20,10 @@ function addTheTask() {
     newTask.setAttribute("ID", taskID);
     newTask.innerHTML = `
         <p>${task}</p>
-        <input type="button" value="Remove" id="remove" onclick="removeTheTask('${taskID}')">`
+        <div>
+            <input type="button" value="Done" id="done" onclick="doneTask('${taskID}')">
+            <input type="button" value="Remove" id="remove" onclick="removeTheTask('${taskID}')">
+        </div> `
     todo.appendChild(newTask);
 }
 
@@ -29,6 +32,16 @@ function removeTheTask(taskID) {
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i].id === taskID) {
             tasks[i].remove();
+        }
+    }
+}
+
+function doneTask(taskID) {
+    let tasks = document.getElementsByClassName("task");
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === taskID) {
+            tasks[i].classList.add("done");
+            tasks[i].querySelector("#done").remove();
         }
     }
 }
