@@ -24,7 +24,6 @@ function addTheTask() {
         <p>${task}</p>
         <input type="button" value="Remove" id="remove" onclick="removeTheTask('${taskID}')">`
     todo.appendChild(newTask);
-    tasks.push(newTask);
 }
 
 function removeTheTask(taskID) {
