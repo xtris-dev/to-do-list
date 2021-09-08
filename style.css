@@ -6,6 +6,7 @@
 	--main-color: #ffe194;
 	--background-color: #e8f6ef;
 	--text-color: #4c4c6d;
+    --hover-color: #7979b6;
 }
 
 /* ==== BASIC SETTINGS ==== */
@@ -72,6 +73,10 @@ main {
 	cursor: pointer;
 	color: white;
 	background-color: var(--text-color);
+    transition: 0.3s ease;
+}
+.add-task #submit:hover {
+    background: var(--hover-color);
 }
 .add-task hr {
 	margin: 60px auto;
@@ -100,4 +105,13 @@ main {
 	background: transparent;
 	color: var(--text-color);
 	cursor: pointer;
+    margin: 0 10px;
+}
+
+.done {
+    background: lightgreen !important;
+    color: white;
+}
+.btn-done {
+    visibility: hidden;
 }
