@@ -16,16 +16,25 @@ writeTask.addEventListener("input", (e) => {
 // Check if input variable isn't empty. If okay, insert a new div with input text value
 
 function addTheTask() {
+    const taskID = Math.random().toString().substring(2, 15);
     newTask = document.createElement("div");
     newTask.classList.add("task");
+    newTask.setAttribute('id', taskID);
     newTask.innerHTML = `
         <p>${task}</p>
-        <input type="button" value="Remove" id="remove" onclick="removeTheTask()">`
+        <input type="button" value="Remove" id="remove" onclick="removeTheTask('${taskID}')">
+    `
     todo.appendChild(newTask);
+    tasks.push(newTask);
 }
 
-function removeTheTask() {
-    newTask.remove();
+function removeTheTask(taskID) {
+    let tasks = document.getElementsByClassName("task");
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === taskID) {
+            tasks[i].remove();
+        }
+    }
 }
 
 addTask.addEventListener("click", (e) => {
